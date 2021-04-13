@@ -1,6 +1,6 @@
 #!/bin/sh
 # Boris Nimcevic
-# 2020 Decemver 30
+# 2020 December 30
 
 SESSION=imagi
 tmux new-session -d -s $SESSION
