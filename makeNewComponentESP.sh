@@ -3,6 +3,9 @@
 # 2021 April 21
 # Create new componet for esp idf target
 
+#TODO
+# figure out how to add the date and how to capitalize the letters
+
 # Make parent folder
 mkdir $1
 cd $1
