@@ -8,17 +8,17 @@ cd $1
 mkdir build
 mkdir components
 mkdir scripts
-touch $1.cpp
+touch main.cpp
 touch CMakeLists.txt
 
 # Make hellow world code:
-echo "#include <iostream>" >> $1.cpp
-echo "#include \"ExampleComponent.h\"" >> $1.cpp
-echo "" >> $1.cpp
-echo "int main(){" >> $1.cpp
-echo "  std::cout << \"Hello World \" << add(1, 2) << std::endl;" >> $1.cpp
-echo "  return 0;" >> $1.cpp
-echo "}" >> $1.cpp
+echo "#include <iostream>" >> main.cpp
+echo "#include \"ExampleComponent.h\"" >> main.cpp
+echo "" >> main.cpp
+echo "int main(){" >> main.cpp
+echo "  std::cout << \"Hello World \" << add(1, 2) << std::endl;" >> main.cpp
+echo "  return 0;" >> main.cpp
+echo "}" >> main.cpp
 
 # Make initial CMakeLists.txt:
 echo "cmake_minimum_required(VERSION 3.0.0)" >> CMakeLists.txt
@@ -32,7 +32,7 @@ echo "set (PROJECT_VERSION_MINOR 0)" >> CMakeLists.txt
 echo "" >> CMakeLists.txt
 echo "set (CMAKE_RUNTIME_OUTPUT_DIRECTORY \${PROJECT_BINARY_DIR}/bin)" >> CMakeLists.txt
 echo "" >> CMakeLists.txt
-echo "add_executable(\${PROJECT_NAME} $1.cpp)" >> CMakeLists.txt
+echo "add_executable(\${PROJECT_NAME} main.cpp)" >> CMakeLists.txt
 echo "" >> CMakeLists.txt
 echo "add_subdirectory(components/ExampleComponent)" >> CMakeLists.txt
 echo "" >> CMakeLists.txt
