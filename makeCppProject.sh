@@ -10,8 +10,9 @@ mkdir components
 mkdir scripts
 touch main.cpp
 touch CMakeLists.txt
+touch .gitignore
 
-# Make hellow world code:
+# Make hello world code:
 echo "#include <iostream>" >> main.cpp
 echo "#include \"ExampleComponent.h\"" >> main.cpp
 echo "" >> main.cpp
@@ -39,6 +40,13 @@ echo "" >> CMakeLists.txt
 echo "target_link_libraries(\${PROJECT_NAME}" >> CMakeLists.txt
 echo "    sub::examplecomponent" >> CMakeLists.txt
 echo ")" >> CMakeLists.txt
+
+# Make .gitignore
+echo ".vim" >> .gitignore
+echo "compile_commands.json" >> .gitignore
+echo "/**/build/" >> .gitignore
+echo "/**/scripts/" >> .gitignore
+echo ".clangd/" >> .gitignore
 
 # Make scripts
 cd scripts
@@ -71,7 +79,7 @@ cd ExampleComponent
 touch ExampleComponent.cpp
 echo "#include \"ExampleComponent.h\"" >> ExampleComponent.cpp
 echo "" >> ExampleComponent.cpp
-echo "int add(int a, int b){" >> ExampleComponent.cpp
+echo "int32_t add(const int32_t  a, const int32_t b){" >> ExampleComponent.cpp
 echo "  return a + b;" >> ExampleComponent.cpp
 echo "}" >> ExampleComponent.cpp
 
@@ -92,9 +100,11 @@ echo ")" >> CMakeLists.txt
 mkdir include
 cd include
 touch ExampleComponent.h
-echo "#ifndef _EXAMPLE_COMPONENT_H_" >> ExampleComponent.h
-echo "#define _EXAMPLE_COMPONENT_H_" >> ExampleComponent.h
+echo "#pragma once" >> ExampleComponent.h
 echo "" >> ExampleComponent.h
-echo "int add(int, int);" >> ExampleComponent.h
+echo "#include "stdint.h"" >> ExampleComponent.h
 echo "" >> ExampleComponent.h
-echo "#endif //_EXAMPLE_COMPONENT_H_" >> ExampleComponent.h
+echo "int32_t add(const int32_t  a, const int32_t b);" >> ExampleComponent.h
+
+cd ../../..
+git init
