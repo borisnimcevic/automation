@@ -1,10 +1,11 @@
 #!/bin/sh
 # Boris Nimcevic
 # 2021 May 2
-# Create new componet for a cpp project
+# Create new component for a cpp project
 
 #TODO
-# figure out how to add the date and how to capitalize the letters
+# figure out how to add the date
+# figure out how to make make the name all lower case
 
 # Make parent folder
 mkdir $1
@@ -26,17 +27,14 @@ echo "    \${PROJECT_SOURCE_DIR}/include" >> CMakeLists.txt
 echo ")" >> CMakeLists.txt
 
 touch $1.cpp
-echo "#include \"$1.h\"" >> $1.cpp
+echo "#include \"$1.hpp\"" >> $1.cpp
 echo "" >> $1.cpp
 echo "int multiply(int a, int b){" >> $1.cpp
 echo "  return a * b;" >> $1.cpp
 echo "}" >> $1.cpp
 
 cd include
-touch $1.h
-echo "#ifndef _$1_H_" >> $1.h # figure out how to make it caps
-echo "#define _$1_H_" >> $1.h
-echo "" >> $1.h
-echo "int multiply(int, int);" >> $1.h
-echo "" >> $1.h
-echo "#endif //_$1_H_" >> $1.h
+touch $1.hpp
+echo "#pragma once" >> $1.hpp # figure out how to make it caps
+echo "" >> $1.hpp
+echo "int multiply(int, int);" >> $1.hpp
