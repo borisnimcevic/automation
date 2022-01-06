@@ -25,6 +25,13 @@ rm Python-3.8.0.tar.xz
 # make python3.8 a default python
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
 
+# make sure pip is setup
+export PATH="/usr/bin/pip:$PATH"
+/usr/bin/python -m pip install --upgrade pip
+
+# add support for python in neovim
+pip intall pynvim
+
 # clone and install
 git clone https://github.com/neovim/neovim
 cd neovim
