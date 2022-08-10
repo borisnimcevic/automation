@@ -9,23 +9,22 @@ sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automak
 sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev
 
 # get and install python3
-wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
-tar xf Python-3.8.0.tar.xz
-cd Python-3.8.0
+wget https://www.python.org/ftp/python/3.10.1/Python-3.10.1.tar.xz
+tar xf Python-3.10.1.tar.xz
+cd Python-3.10.1
 ./configure --enable-optimizations --prefix=/usr
 make
 sudo make altinstall
-
 # clean after build
 cd ..
-sudo rm -r Python-3.8.0
-rm Python-3.8.0.tar.xz
+sudo rm -r Python-3.10.1
+rm Python-3.10.1.tar.xz
 . ~/.bashrc
 
 # make python3.8 a default python
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
 
-# clone and install
+# clone and install neovim
 git clone https://github.com/neovim/neovim
 cd neovim
 rm -r build/  # clear the CMake cache
